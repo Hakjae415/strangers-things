@@ -25,9 +25,10 @@ const Authenticate = ({ token }) => {
     const [userData, setUserData] = useState(null)
 
     const handleClick = async() => {
+        console.log(token)
         try {
-            const response = await fetch(`${API_URL}/authenticate`,{
-                method: "POST",
+            const response = await fetch(`${API_URL}/test/me`,{
+                method: "GET",
                 headers:{
                     "Content-Type": "application/json",
                     Authorization: `Bearer ${token}`,

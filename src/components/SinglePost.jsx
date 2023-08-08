@@ -9,17 +9,28 @@ const SinglePost = () => {
 
     useEffect(() => {
         const fetchDetail = async() => {
-            const response = await fetch(`${API_URL}/${id}`)
-            const data = await response.json();
-            setPost(data)
-            console.log(data)
+            try {
+                const response = await fetch(`${API_URL}/posts`)
+                const data = await response.json();
+                setPost(data.data.posts)
+                console.log(data)
+                console.log(data.data)
+                console.log('posts', data.data.posts)
+            } catch(err) {
+                console.error("Trouble Loading One Post", err)
+            }
+
         }
         fetchDetail();
-    }, []);
+    }, [id]);
 
     return (
         <>
             <h1>SinglePost</h1>
+            <h1>{post.title}</h1>
+            <p>{post.description}</p>
+            <p>{post.price}</p>
+            <p>{post.success}</p>
         </>
     )
 }

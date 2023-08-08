@@ -11,7 +11,7 @@ const Login = () => {
             const response = await fetch(`${API_URL}/users/login`, {
                 method: "POST",
                 headers: {
-                    "Content-Type" : "application/json"
+                    "Content-Type" : "application/json",
                 },
                 body: JSON.stringify({
                     user: {
@@ -22,12 +22,14 @@ const Login = () => {
             });
             const result = await response.json();
             console.log(result)
+            return result
         } catch(err) {
             console.err("Trouble Logging in", err)
         }
     }
     return (
         <>
+          <h1>Login Page</h1>
           <form onSubmit={handleSubmit}>
             <label>
                 Username

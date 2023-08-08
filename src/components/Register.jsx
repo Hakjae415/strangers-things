@@ -3,7 +3,7 @@ import Authenticate from "./Authenticate";
 
 const API_URL = "https://strangers-things.herokuapp.com/api/2306-FSA-ET-WEB-FT-SF"
 
-const Register = ({setToken}) => {
+const Register = ({setToken, token}) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
@@ -52,7 +52,7 @@ const Register = ({setToken}) => {
             </label>
             <button>Submit</button>
           </form>
-          <Authenticate/>
+          <Authenticate token={token}/>
         </>
     )
 };
