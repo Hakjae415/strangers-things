@@ -3,7 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 
 const API_URL = "https://strangers-things.herokuapp.com/api/2306-FSA-ET-WEB-FT-SF"
 
-const ListPosts = () => {
+const ListPosts = ({deletePost}) => {
     const [listAll, setListAll] = useState([]);
     const navigate = useNavigate();
     useEffect(() => {
@@ -43,6 +43,7 @@ const ListPosts = () => {
                             <p>Seller: {post.author.username}</p>
                             <p>Location: {post.location}</p>
                             <Link to={`/posts/${post._id}`}>See More</Link>
+                            <button onClick={deletePost}>Delete Post</button>
                         </div>
                     )
                 })

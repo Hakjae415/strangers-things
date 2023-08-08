@@ -7,7 +7,8 @@ const CreatePost = ({token}) => {
     const [willDeliver, setWillDeliver] = useState(false)
     const [location, setLocation] = useState("")
 
-    const handleSubmit = async() => {
+    const handleSubmit = async({token}) => {
+
         try {
             const response = await fetch(`https://strangers-things.herokuapp.com/api/2306-FSA-ET-WEB-FT-SF/posts`, {
                 method: "POST",

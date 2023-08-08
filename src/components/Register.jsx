@@ -1,5 +1,8 @@
 import { useState } from "react"
+import { Routes, Route } from "react-router-dom";
 import Authenticate from "./Authenticate";
+import CreatePost from "./CreatePost";
+import Home from "./Home";
 
 const API_URL = "https://strangers-things.herokuapp.com/api/2306-FSA-ET-WEB-FT-SF"
 

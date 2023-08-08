@@ -15,8 +15,9 @@ const Profile = ({token}) => {
                     }
                 })
                 const result = await response.json();
-                console.log(result)
-                setUser(result)
+                console.log("profile",result)
+                console.log("results", result.data)
+                setUser(result.data)
             } catch(err) {
                 console.error("ERROR LOADING PROFILE", err)
             }
@@ -28,6 +29,9 @@ const Profile = ({token}) => {
     return (
         <>
             <h1>Profile</h1>
+            <p>User: {user.username}</p>
+            <p>Posts: {user.posts}</p>
+            <p>Messages: {user.messages}</p>
         </>
     )
 }

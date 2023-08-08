@@ -2,9 +2,10 @@ import { useState } from "react";
 
 const API_URL = "https://strangers-things.herokuapp.com/api/2306-FSA-ET-WEB-FT-SF"
 
-const Login = () => {
+const Login = ({setToken}) => {
     const [user, setUser] = useState("");
     const [pw, setPw] = useState("")
+    
     const handleSubmit = async(e) => {
         e.preventDefault();
         try {
@@ -15,18 +16,20 @@ const Login = () => {
                 },
                 body: JSON.stringify({
                     user: {
-                        user,
-                        pw
+                        username: user,
+                        password: pw
                     }
                 })
             });
             const result = await response.json();
-            console.log(result)
-            return result
+            console.log("Login result", result)
+            console.log("login token", result.data.token)
+            setToken(result.data.token)
         } catch(err) {
             console.err("Trouble Logging in", err)
         }
     }
+
     return (
         <>
           <h1>Login Page</h1>
